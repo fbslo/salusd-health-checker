@@ -39,7 +39,7 @@ async function main(){
         errorCount = 0
         killProcess("salusd")
 
-        exec('bash -c "exec -a salusd ./salusd"', (err, stdout, stderr) => {
+        exec('bash -c "exec -a salusd ../salusd"', (err, stdout, stderr) => {
             if (err) {
                 console.log(err)
             } else {
