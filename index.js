@@ -67,9 +67,13 @@ async function rpcCall(body){
 
     request(options, (error, response, resBody) => {
       if (error) {
-        resolve(false)
+        resolve({result: false})
       } else {
-        resolve(true)
+        try {
+          resolve(JSON.parse(response.body))
+        } catch (e){
+          resolve({result: false})
+        }
       }
     });
   })

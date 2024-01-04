@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dotenv": "^16.3.1",
     "kill-process-by-name": "^1.0.5",
     "request": "^2.88.2"
   }
