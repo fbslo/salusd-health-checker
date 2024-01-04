@@ -25,8 +25,14 @@ setInterval(() => {
 
 async function main(){
     let headBlock = await getHeadBlock()
+
+    if (headBlock != false) {
+      console.log(`Head block: ${headBlock}`)
+    }
+
     if (headBlock == false) {
-        errorCount++
+      errorCount++
+      console.log("Error getting head block! errorCount: " + errorCount)
     }
 
     if (errorCount >= 3) {
@@ -54,17 +60,17 @@ async function getHeadBlock(){
   }
 
 async function rpcCall(body){
-    return new Promise((resolve, reject) => {
-      if (typeof body != 'string') body = JSON.stringify(body)
-  
-      options.body = body
-  
-      request(options, (error, response, resBody) => {
-        if (error) {
-          resolve(false)
-        } else {
-          resolve(true)
-        }
-      });
-    })
-  }
+  return new Promise((resolve, reject) => {
+    if (typeof body != 'string') body = JSON.stringify(body)
+
+    options.body = body
+
+    request(options, (error, response, resBody) => {
+      if (error) {
+        resolve(false)
+      } else {
+        resolve(true)
+      }
+    });
+  })
+}
