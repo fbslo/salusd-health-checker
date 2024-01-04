@@ -1,4 +1,4 @@
-Start salusd process with name `salusd`: `bash -c "exec -a salusd ./salusd"` (must be kept running, e.g in a screen session)
+Start salusd process with name `salusd`: `bash -c "exec -a salusd ./salusd"` (should be kept running, e.g in a screen session, but after first restart, it will be running as a child process of this app)
 
 Set up the app: 
 
